@@ -1,13 +1,15 @@
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import preactLogo from "../assets/preact.svg";
 import "./style.css";
 import api from "@pdr-999/km-nestia";
+import { IBbsArticle } from "@pdr-999/km-nestia/lib/structures/bbs/IBbsArticle";
 
 export function Page() {
+  const [articles, setArticles] = useState<IBbsArticle.ISummary[]>([]);
   useEffect(() => {
     api.functional.bbs.articles
       .index({ host: "http://localhost:3002", simulate: true }, "general", {})
-      .then(console.log)
+      .then(({ data }) => setArticles(data))
       .catch(console.error);
   }, []);
   return (
@@ -16,6 +18,7 @@ export function Page() {
         <img src={preactLogo} alt="Preact logo" height="160" width="160" />
       </a>
       <h1>Get Started building Vite-powered Preact Apps </h1>
+      <pre>{JSON.stringify(articles, null, 1)}</pre>
       <section>
         <Resource
           title="Learn Preact"
