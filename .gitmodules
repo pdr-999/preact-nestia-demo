@@ -1,3 +1,4 @@
 [submodule "nestia-demo"]
 	path = nestia-demo
 	url = git@github.com:pdr-999/nestia-demo.git
+	branch = "master"
