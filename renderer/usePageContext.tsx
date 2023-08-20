@@ -1,8 +1,8 @@
 // `usePageContext` allows us to access `pageContext` in any Preact component.
 // See https://vite-plugin-ssr.com/pageContext-anywhere
 
-import { createContext } from 'preact';
-import { useContext } from 'preact/hooks';
+import { createContext } from "preact";
+import { useContext } from "preact/hooks";
 
 export { PageContextProvider };
 export { usePageContext };
@@ -10,10 +10,10 @@ export { usePageContext };
 const Context = createContext(undefined);
 
 function PageContextProvider({ pageContext, children }) {
-	return <Context.Provider value={pageContext}>{children}</Context.Provider>;
+  return <Context.Provider value={pageContext}>{children}</Context.Provider>;
 }
 
 function usePageContext() {
-	const pageContext = useContext(Context);
-	return pageContext;
+  const pageContext = useContext(Context);
+  return pageContext;
 }

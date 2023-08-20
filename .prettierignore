@@ -1,1 +1,4 @@
 nestia-demo
+**/*.sh
+package-lock.json
+node_modules
