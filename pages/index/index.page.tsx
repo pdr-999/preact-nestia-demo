@@ -1,9 +1,8 @@
 import { useEffect, useState } from "preact/hooks";
 import preactLogo from "../assets/preact.svg";
 import "./style.css";
-import api from "@pdr-999/km-nestia";
-import { IBbsArticle } from "@pdr-999/km-nestia/lib/structures/bbs/IBbsArticle";
-
+import { IBbsArticle } from "@pdr-999/sdk/lib/structures/bbs/IBbsArticle";
+import api from "@pdr-999/sdk";
 export function Page() {
   const [articles, setArticles] = useState<IBbsArticle.ISummary[]>([]);
   useEffect(() => {
